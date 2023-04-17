@@ -13,10 +13,17 @@ function App() {
     dispatch(calculateTotals())
   }, [cartItems]);
 
-useEffect(() => {
+  useEffect(() => {
     dispatch(getCartItems());
-  }, [dispatch]); 
-})
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div class="loading">
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
 
   return (
     <main>
